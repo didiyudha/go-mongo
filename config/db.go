@@ -3,6 +3,7 @@ package config
 import (
 	"fmt"
 
+	_ "github.com/lib/pq"
 	"gopkg.in/mgo.v2"
 )
 

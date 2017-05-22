@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>All Books</title>
+    <style>
+        html, body, p {
+            padding: 0;
+            border: 0;
+            margin: 0;
+        }
+        body {
+            display: flex;
+            flex-flow: column nowrap;
+            justify-content: center;
+            align-items: left;
+            height: 100vh;
+        }
+        p {
+            margin-left: 4rem;
+            font-size: 2rem;
+            color: black;
+          }
+        .link {
+            font-size: 1rem;    
+        }
+    </style>
+</head>
+<body>
+    <div align="center">
+        <h2>List of Books</h2>
+    </div>
+    
+    {{range . }}
+        <p>
+           <a href="/books/show?isbn={{.Isbn}}">{{ .Isbn }}</a> - {{ .Title }} - {{ .Author }} - {{ .Author }} - {{ .Price }} - <a href="/books/edit?isbn={{ .Isbn }}">Update</a> - <a href="/books/delete?isbn={{ .Isbn }}">Delete</a>
+        </p>
+    {{ end }}
+    <p>
+        <a href="/books/new">Add New Book</a>
+    </p>
+</body>
+</html>
